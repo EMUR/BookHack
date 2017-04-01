@@ -11,7 +11,10 @@ import UIKit
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let picker = UIImagePickerController()
     
+    @IBOutlet weak var ISBN: UITextField!
+    @IBOutlet weak var bookName: UITextField!
     @IBOutlet weak var selectedImageView: UIImageView!
+    @IBOutlet weak var authorText: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
