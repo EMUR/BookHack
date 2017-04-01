@@ -36,7 +36,7 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
         // for more information, see Apple's documentation: http://go.microsoft.com/fwlink/?LinkId=524591&clcid=0x409
         let resultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         
-        resultsController.delegate = self
+        resultsController.delegate = self;
         
         return resultsController
     }()
@@ -45,7 +45,7 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let client = MSClient(applicationURLString: "https://koob.azurewebsites.net")
+        let client = MSClient(applicationURLString: "https://bookhack.azurewebsites.net")
         let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!
         self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
         client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
@@ -57,7 +57,7 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
             try self.fetchedResultController.performFetch()
         } catch let error1 as NSError {
             error = error1
-            print("Unresolved error \(error!), \(error!.userInfo)")
+            print("Unresolved error \(error), \(error?.userInfo)")
             abort()
         }
 
@@ -142,7 +142,7 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
             return sections[section].numberOfObjects
         }
         
-        return 0
+        return 0;
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

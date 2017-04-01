@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Koob.xcodeproj">
+      location = "self:BookHack.xcodeproj">
    </FileRef>
 </Workspace>
