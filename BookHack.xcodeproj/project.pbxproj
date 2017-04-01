@@ -26,6 +26,7 @@
 		DBA1A1C81E9030CF00316587 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA1A1C71E9030CF00316587 /* libxml2.2.tbd */; };
 		DBA1A1CA1E9034C900316587 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA1A1C91E9034C900316587 /* MicrosoftAzureMobile.framework */; };
 		DBA1A1CC1E903F7200316587 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA1A1CB1E903F7200316587 /* PostViewController.swift */; };
+		DBDEFB1B1E9066D300C24CA2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDEFB1A1E9066D300C24CA2 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		DBA1A1C71E9030CF00316587 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		DBA1A1C91E9034C900316587 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MicrosoftAzureMobile.framework; path = BookHack/MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 		DBA1A1CB1E903F7200316587 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		DBDEFB1A1E9066D300C24CA2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FF910F192A6590F505F9536C /* Pods-BookHack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookHack.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookHack/Pods-BookHack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +115,7 @@
 				045F981A1E905B5700C38C64 /* BookCollectionViewCell.swift */,
 				A2D9CBCD1943C2540017F096 /* Images.xcassets */,
 				A2D9CBE31943C39D0017F096 /* ToDoTableViewController.swift */,
+				DBDEFB1A1E9066D300C24CA2 /* LoginViewController.swift */,
 				047CEAB71E901A1100B14BD0 /* MainViewController.swift */,
 				047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */,
 				047CEABB1E9025C000B14BD0 /* BookConstants.swift */,
@@ -179,6 +182,7 @@
 				TargetAttributes = {
 					A2D9CBBD1943C2540017F096 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 7WVGN2PG33;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -275,6 +279,7 @@
 				A2D9CBE41943C39D0017F096 /* ToDoTableViewController.swift in Sources */,
 				A2D9CBC41943C2540017F096 /* AppDelegate.swift in Sources */,
 				047CEAB81E901A1100B14BD0 /* MainViewController.swift in Sources */,
+				DBDEFB1B1E9066D300C24CA2 /* LoginViewController.swift in Sources */,
 				047CEABC1E9025C000B14BD0 /* BookConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +394,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 7WVGN2PG33;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -411,6 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 7WVGN2PG33;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

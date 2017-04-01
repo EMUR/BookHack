@@ -57,7 +57,7 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
             try self.fetchedResultController.performFetch()
         } catch let error1 as NSError {
             error = error1
-            print("Unresolved error \(error), \(error?.userInfo)")
+            print("Unresolved error \(error), \(error!.userInfo)")
             abort()
         }
 
