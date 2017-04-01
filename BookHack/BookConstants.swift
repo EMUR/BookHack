@@ -10,14 +10,16 @@ import Foundation
 
 
 struct Book {
-    init(names:String!, auth:String!, ISBNs:Int!, urls:String!) {
+    init(names:String!, auth:String!, ISBNs:Int!, urls:String!, created:Date!) {
         name = names
         author = auth
         ISBN = ISBNs
         url = urls
+        createdAt = created
     }
     var name:String!
     var author:String!
     var ISBN:Int!
     var url:String!
+    var createdAt:Date!
 }
