@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045655451E906EB400C15163 /* InitilizeConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045655441E906EB400C15163 /* InitilizeConnection.swift */; };
+		045655471E906FB700C15163 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045655461E906FB700C15163 /* SearchViewController.swift */; };
 		045F981B1E905B5700C38C64 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F981A1E905B5700C38C64 /* BookCollectionViewCell.swift */; };
 		047CEAB81E901A1100B14BD0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEAB71E901A1100B14BD0 /* MainViewController.swift */; };
 		047CEABA1E901A2200B14BD0 /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045655441E906EB400C15163 /* InitilizeConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitilizeConnection.swift; sourceTree = "<group>"; };
+		045655461E906FB700C15163 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		045F981A1E905B5700C38C64 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		047CEAB71E901A1100B14BD0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
@@ -111,10 +115,12 @@
 				A2D9CBC31943C2540017F096 /* AppDelegate.swift */,
 				A2D9CBCA1943C2540017F096 /* Main.storyboard */,
 				045F981A1E905B5700C38C64 /* BookCollectionViewCell.swift */,
+				045655441E906EB400C15163 /* InitilizeConnection.swift */,
 				A2D9CBCD1943C2540017F096 /* Images.xcassets */,
 				A2D9CBE31943C39D0017F096 /* ToDoTableViewController.swift */,
 				047CEAB71E901A1100B14BD0 /* MainViewController.swift */,
 				047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */,
+				045655461E906FB700C15163 /* SearchViewController.swift */,
 				047CEABB1E9025C000B14BD0 /* BookConstants.swift */,
 				A2E767C5194594DC00869113 /* ToDoItemViewController.swift */,
 				DBA1A1CB1E903F7200316587 /* PostViewController.swift */,
@@ -268,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBA1A1CC1E903F7200316587 /* PostViewController.swift in Sources */,
+				045655471E906FB700C15163 /* SearchViewController.swift in Sources */,
 				A2E767C6194594DC00869113 /* ToDoItemViewController.swift in Sources */,
 				A2BD20971AC8A731007F7181 /* QSTodoDataModel.xcdatamodeld in Sources */,
 				045F981B1E905B5700C38C64 /* BookCollectionViewCell.swift in Sources */,
@@ -276,6 +283,7 @@
 				A2D9CBC41943C2540017F096 /* AppDelegate.swift in Sources */,
 				047CEAB81E901A1100B14BD0 /* MainViewController.swift in Sources */,
 				047CEABC1E9025C000B14BD0 /* BookConstants.swift in Sources */,
+				045655451E906EB400C15163 /* InitilizeConnection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -105,6 +105,36 @@
             </objects>
             <point key="canvasLocation" x="3824.8000000000002" y="167.76611694152925"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="pY3-nn-gjg">
+            <objects>
+                <viewController storyboardIdentifier="search" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3iz-xW-Kel" customClass="SearchViewController" customModule="BookHack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OjU-0l-TeT"/>
+                        <viewControllerLayoutGuide type="bottom" id="axU-b3-eeU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TfZ-mw-dNz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="   Search" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Cv-DA-KUA">
+                                <rect key="frame" x="8" y="28" width="359" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchField" destination="1Cv-DA-KUA" id="mB6-yX-kyB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xxA-7V-ujH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1465" y="-863"/>
+        </scene>
         <!--Item-->
         <scene sceneID="2aH-qa-Gbi">
             <objects>
@@ -161,6 +191,20 @@
                                             <action selector="relaod:" destination="P2l-fe-yd5" eventType="touchUpInside" id="JSi-Bu-aiA"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="   Search" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r5Q-MQ-3Pv">
+                                        <rect key="frame" x="8" y="20" width="359" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Jn-az-cho">
+                                        <rect key="frame" x="8" y="20" width="359" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="doSearch:" destination="P2l-fe-yd5" eventType="touchUpInside" id="q96-aa-lnV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -184,6 +228,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="y8t-4r-gWn"/>
                     <connections>
                         <outlet property="previewCollection" destination="Yr0-Wp-bNn" id="3JB-TV-nDf"/>
+                        <outlet property="seachView" destination="r5Q-MQ-3Pv" id="ptw-PP-uzT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRy-dS-X0i" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,8 +14,7 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
     
     static let sharedInstance = ConnectionHandler(maketype: "Book")
     
-    var table : MSTable?
-    var store : MSCoreDataStore?
+   
     static var dataType:String!
     
     // If using a SAS token, fill it in here.  If using Shared Key access, comment out the following line.
@@ -33,30 +32,11 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
         self.continuationToken = nil
         
         ConnectionHandler.dataType = maketype
-        self.establishConnection()
+        InitilizeConnection.sharedInstance.establishConnection()
+    }
 
-}
     
-    
-    lazy var fetchedResultController: NSFetchedResultsController<NSFetchRequestResult> = {
-        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: ConnectionHandler.dataType)
-        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!
-        
-        // show only non-completed items
-        fetchRequest.predicate = NSPredicate(format: "deleted != true")
-        
-        // sort by item text
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
-        
-        // Note: if storing a lot of data, you should specify a cache for the last parameter
-        // for more information, see Apple's documentation: http://go.microsoft.com/fwlink/?LinkId=524591&clcid=0x409
-        let resultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        
-        resultsController.delegate = self;
-        
-        return resultsController
-    }()
-    
+       
     
     func uploadBlob() {
         let blob = container!.blockBlobReference(fromName: "Test")
@@ -100,24 +80,7 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
     }
 
     
-    func establishConnection()
-    {
-        var error : NSError? = nil
-        do {
-            try fetchedResultController.performFetch()
-        } catch let error1 as NSError {
-            error = error1
-            print("Unresolved error \(String(describing: error)), \(String(describing: error?.userInfo))")
-            abort()
-        }
-        
-        let client = MSClient(applicationURLString: "https://bookhack.azurewebsites.net")
-        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!
-        store = MSCoreDataStore(managedObjectContext: managedObjectContext)
-        client.syncContext = MSSyncContext(delegate: nil, dataSource: store, callback: nil)
-        table = client.table(withName: ConnectionHandler.dataType)
-    }
-    
+       
     
     func addElement(Object:Any)
     {
@@ -126,7 +89,7 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
             
             let itemToInsert = ["bookname": bookObj.name, "author": bookObj.author, "ISBN": bookObj.ISBN, "url": bookObj.url] as [AnyHashable : Any]
             
-            self.table!.insert(itemToInsert, completion: { (item, error) in
+            InitilizeConnection.sharedInstance.table!.insert(itemToInsert, completion: { (item, error) in
                 if error != nil {
                     print("Error: " + (error! as NSError).description)
                 }
@@ -141,7 +104,7 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
         var Arr = [Dictionary<String,Any>]()
         
         
-        table?.read{ (result, error) in
+        InitilizeConnection.sharedInstance.table?.read{ (result, error) in
             if let err = error {
                 print("ERROR ", err)
             } else if let items = result?.items {
