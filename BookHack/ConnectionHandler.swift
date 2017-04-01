@@ -60,7 +60,7 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
     
     func addElement(Object:Any)
     {
-        
+        print("Added")
     }
 
     
