@@ -14,15 +14,27 @@ var store : MSCoreDataStore?
 
 class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
 {
+    // MARK: Authentication
     
-    static var dataType:String! = ""
+    // If using a SAS token, fill it in here.  If using Shared Key access, comment out the following line.
+    var containerURL = "https://bookhackstorage.blob.core.windows.net/hellobook?st=2017-04-01T18%3A29%3A00Z&se=2017-04-02T18%3A29%3A00Z&sp=rwdl&sv=2015-12-11&sr=c&sig=cBqvsllgXYIWQVE55Ss0Aa9hDHZlBC1JQV5kl9jXYs4%3D"
+    var usingSAS = true
+    var blobs = [AZSCloudBlob]()
+    var container : AZSCloudBlobContainer?
+    var continuationToken : AZSContinuationToken?
+    
+    static var dataType: String! = ""
     
     init(maketype:String) {
         super.init()
+        
+        var error: NSError?
+        self.container = AZSCloudBlobContainer(url: NSURL(string: containerURL)! as URL, error: &error)
+        self.continuationToken = nil
+        
         ConnectionHandler.dataType = maketype
         self.establishConnection()
     }
-    
     
     
     lazy var fetchedResultController: NSFetchedResultsController<NSFetchRequestResult> = {
@@ -44,8 +56,32 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
         return resultsController
     }()
     
-    func establishConnection()
-    {
+    func uploadBlob() {
+        let blob = container!.blockBlobReference(fromName: "Test")
+        
+        // Use another method for pictures
+        blob.upload(fromText: "",  completionHandler: { (error: Error?) -> Void in
+        // Reload
+        })
+    }
+    
+    func getBlobList() {
+        container!.listBlobsSegmented(with: nil, prefix: nil, useFlatBlobListing: true, blobListingDetails: [], maxResults: 50) { (error : Error?, results : AZSBlobResultSegment?) -> Void in
+            
+            self.blobs = [AZSCloudBlob]()
+            
+            for blob in results!.blobs!
+            {
+                self.blobs.append(blob as! AZSCloudBlob)
+                print(blob)
+            }
+            
+            self.continuationToken = results!.continuationToken
+            //self.tableView.performSelectorOnMainThread("reloadData", withObject: nil, waitUntilDone: false)
+        }
+    }
+    
+    func establishConnection() {
         
         var error : NSError? = nil
         do {
@@ -57,20 +93,13 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
         }
     }
     
-    
-    func addElement(Object:Any)
-    {
+    func addElement(Object:Any) {
         print("Added")
     }
-
     
-    
-    func getArrayOf(completion: @escaping (_ success: Bool, _ items: [Dictionary<AnyHashable,Any>]) -> Void)
-    {
-        
+    func getArrayOf(completion: @escaping (_ success: Bool, _ items: [Dictionary<AnyHashable,Any>]) -> Void) {
         var Arr = [Dictionary<AnyHashable,Any>]()
         
-    
         let client = MSClient(applicationURLString: "https://bookhack.azurewebsites.net")
         let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!
         store = MSCoreDataStore(managedObjectContext: managedObjectContext)
@@ -86,11 +115,6 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
                 }
                 completion(true, Arr)
             }
-            
         }
-        
-        
-        print("Pulled")
-        
     }
 }
