@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let book = ConnectionHandler(maketype: "Book")
+        let book = ConnectionHandler.sharedInstance
         
     
         book.getArrayOf { (resul: Bool, array: [Dictionary<String, Any>]) in

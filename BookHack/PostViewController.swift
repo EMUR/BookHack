@@ -56,7 +56,12 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func uploadPhoto(_ sender: UIButton) {
-        
+        ConnectionHandler.sharedInstance.uploadBookPicture(selectedImageView.image!) { (success: Bool) in
+            // TODO: Loading indicator
+            if success {
+                print("Done")
+            }
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

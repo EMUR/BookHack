@@ -8,11 +8,11 @@
 
 import UIKit
 
-
-
 class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
 {
     // MARK: Authentication
+    
+    static let sharedInstance = ConnectionHandler(maketype: "Book")
     
     var table : MSTable?
     var store : MSCoreDataStore?

@@ -211,8 +211,7 @@
                                 </constraints>
                                 <state key="normal" title="Upload Photo"/>
                                 <connections>
-                                    <action selector="photoFromLibrary:" destination="TPY-3i-xbv" eventType="touchUpInside" id="utx-XC-8hO"/>
-                                    <action selector="uploadPhoto:" destination="TPY-3i-xbv" eventType="touchUpInside" id="JnF-kH-n7g"/>
+                                    <action selector="uploadPhoto:" destination="TPY-3i-xbv" eventType="touchUpInside" id="nsK-gj-6ro"/>
                                 </connections>
                             </button>
                         </subviews>
