@@ -89,5 +89,8 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
             
         }
         
+        
+        print("Pulled")
+        
     }
 }
