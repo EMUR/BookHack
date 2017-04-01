@@ -13,16 +13,20 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let todo = ConnectionHandler(maketype: "TodoItem")
+        let book = ConnectionHandler(maketype: "Book")
         
-        todo.getBlobList()
-        
-        todo.getArrayOf { (resul: Bool, array: [Dictionary<AnyHashable, Any>]) in
+    
+        book.getArrayOf { (resul: Bool, array: [Dictionary<String, Any>]) in
             for i in array
             {
-                print(i["text"] as! String)
+                print(i["bookname"] as! String)
             }
         }
+//
+//        book.addElement(Object: Book(names: "Calc", auth: "Me", ISBNs: 123, urls: "www.google.com", created: Date()))
+        
+        
+        
         
     }
     

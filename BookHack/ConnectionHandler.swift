@@ -9,12 +9,14 @@
 import UIKit
 
 
-var table : MSSyncTable?
-var store : MSCoreDataStore?
 
 class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
 {
     // MARK: Authentication
+    
+    var table : MSTable?
+    var store : MSCoreDataStore?
+    static var dataType:String!
     
     // If using a SAS token, fill it in here.  If using Shared Key access, comment out the following line.
     var containerURL = "https://bookhackstorage.blob.core.windows.net/hellobook?st=2017-04-01T18%3A29%3A00Z&se=2017-04-02T18%3A29%3A00Z&sp=rwdl&sv=2015-12-11&sr=c&sig=cBqvsllgXYIWQVE55Ss0Aa9hDHZlBC1JQV5kl9jXYs4%3D"
@@ -22,8 +24,6 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
     var blobs = [AZSCloudBlob]()
     var container : AZSCloudBlobContainer?
     var continuationToken : AZSContinuationToken?
-    
-    static var dataType: String! = ""
     
     init(maketype:String) {
         super.init()
@@ -34,7 +34,8 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
         
         ConnectionHandler.dataType = maketype
         self.establishConnection()
-    }
+
+}
     
     
     lazy var fetchedResultController: NSFetchedResultsController<NSFetchRequestResult> = {
@@ -42,7 +43,7 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
         let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!
         
         // show only non-completed items
-        fetchRequest.predicate = NSPredicate(format: "complete != true")
+        fetchRequest.predicate = NSPredicate(format: "deleted != true")
         
         // sort by item text
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
@@ -56,12 +57,13 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
         return resultsController
     }()
     
+    
     func uploadBlob() {
         let blob = container!.blockBlobReference(fromName: "Test")
         
         // Use another method for pictures
         blob.upload(fromText: "",  completionHandler: { (error: Error?) -> Void in
-        // Reload
+            // Reload
         })
     }
     
@@ -95,9 +97,10 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
             //self.tableView.performSelectorOnMainThread("reloadData", withObject: nil, waitUntilDone: false)
         }
     }
+
     
-    func establishConnection() {
-        
+    func establishConnection()
+    {
         var error : NSError? = nil
         do {
             try fetchedResultController.performFetch()
@@ -106,30 +109,48 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
             print("Unresolved error \(String(describing: error)), \(String(describing: error?.userInfo))")
             abort()
         }
-    }
-    
-    func addElement(Object:Any) {
-        print("Added")
-    }
-    
-    func getArrayOf(completion: @escaping (_ success: Bool, _ items: [Dictionary<AnyHashable,Any>]) -> Void) {
-        var Arr = [Dictionary<AnyHashable,Any>]()
         
         let client = MSClient(applicationURLString: "https://bookhack.azurewebsites.net")
         let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!
         store = MSCoreDataStore(managedObjectContext: managedObjectContext)
         client.syncContext = MSSyncContext(delegate: nil, dataSource: store, callback: nil)
-        table = client.syncTable(withName: ConnectionHandler.dataType)
+        table = client.table(withName: ConnectionHandler.dataType)
+    }
+    
+    
+    func addElement(Object:Any)
+    {
+        
+        if let bookObj = Object as? Book {
+            
+            let itemToInsert = ["bookname": bookObj.name, "author": bookObj.author, "ISBN": bookObj.ISBN, "url": bookObj.url] as [AnyHashable : Any]
+            
+            self.table!.insert(itemToInsert, completion: { (item, error) in
+                if error != nil {
+                    print("Error: " + (error! as NSError).description)
+                }
+            })
+            
+        }
+    }
+    
+    func getArrayOf(completion: @escaping (_ success: Bool, _ items: [Dictionary<String,Any>]) -> Void)
+    {
+        
+        var Arr = [Dictionary<String,Any>]()
+        
         
         table?.read{ (result, error) in
             if let err = error {
                 print("ERROR ", err)
             } else if let items = result?.items {
                 for item in items {
-                    Arr.append(item)
+                    Arr.append(item as! [String : Any])
                 }
                 completion(true, Arr)
             }
         }
+        
+        print("---------------") 
     }
 }
