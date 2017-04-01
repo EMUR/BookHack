@@ -10,7 +10,6 @@ import UIKit
 
 
 
-
 class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
 {
     // MARK: Authentication
@@ -18,6 +17,13 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
     var table : MSTable?
     var store : MSCoreDataStore?
     static var dataType:String!
+    
+    // If using a SAS token, fill it in here.  If using Shared Key access, comment out the following line.
+    var containerURL = "https://bookhackstorage.blob.core.windows.net/hellobook?st=2017-04-01T18%3A29%3A00Z&se=2017-04-02T18%3A29%3A00Z&sp=rwdl&sv=2015-12-11&sr=c&sig=cBqvsllgXYIWQVE55Ss0Aa9hDHZlBC1JQV5kl9jXYs4%3D"
+    var usingSAS = true
+    var blobs = [AZSCloudBlob]()
+    var container : AZSCloudBlobContainer?
+    var continuationToken : AZSContinuationToken?
     
     init(maketype:String) {
         super.init()
@@ -28,7 +34,8 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
         
         ConnectionHandler.dataType = maketype
         self.establishConnection()
-    }
+
+}
     
     
     lazy var fetchedResultController: NSFetchedResultsController<NSFetchRequestResult> = {
@@ -49,6 +56,48 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
         
         return resultsController
     }()
+    
+    
+    func uploadBlob() {
+        let blob = container!.blockBlobReference(fromName: "Test")
+        
+        // Use another method for pictures
+        blob.upload(fromText: "",  completionHandler: { (error: Error?) -> Void in
+            // Reload
+        })
+    }
+    
+    func uploadBookPicture(_ picture: UIImage, completion: @escaping (_ success: Bool) -> Void) {
+        let blob = container!.blockBlobReference(fromName: "bookCover")
+        
+        let imageData = UIImagePNGRepresentation(picture) as Data!
+        
+        // Use another method for pictures
+        blob.upload(from: imageData!) { (error: Error?) in
+            if error != nil {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
+    
+    func getBlobList() {
+        container!.listBlobsSegmented(with: nil, prefix: nil, useFlatBlobListing: true, blobListingDetails: [], maxResults: 50) { (error : Error?, results : AZSBlobResultSegment?) -> Void in
+            
+            self.blobs = [AZSCloudBlob]()
+            
+            for blob in results!.blobs!
+            {
+                self.blobs.append(blob as! AZSCloudBlob)
+                print(blob)
+            }
+            
+            self.continuationToken = results!.continuationToken
+            //self.tableView.performSelectorOnMainThread("reloadData", withObject: nil, waitUntilDone: false)
+        }
+    }
+
     
     func establishConnection()
     {
