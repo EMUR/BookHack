@@ -70,7 +70,7 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
     func uploadBookPicture(_ picture: UIImage, completion: @escaping (_ success: Bool) -> Void) {
         let blob = container!.blockBlobReference(fromName: "bookCover")
         
-        let imageData = UIImagePNGRepresentation(picture) as Data!
+        let imageData = UIImageJPEGRepresentation(picture, 1.0) as Data!
         
         // Use another method for pictures
         blob.upload(from: imageData!) { (error: Error?) in
