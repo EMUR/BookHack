@@ -13,6 +13,7 @@ import UIKit
 
 class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
 {
+    // MARK: Authentication
     
     var table : MSTable?
     var store : MSCoreDataStore?
@@ -20,10 +21,14 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
     
     init(maketype:String) {
         super.init()
+        
+        var error: NSError?
+        self.container = AZSCloudBlobContainer(url: NSURL(string: containerURL)! as URL, error: &error)
+        self.continuationToken = nil
+        
         ConnectionHandler.dataType = maketype
         self.establishConnection()
     }
-    
     
     
     lazy var fetchedResultController: NSFetchedResultsController<NSFetchRequestResult> = {
@@ -79,8 +84,6 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
             
         }
     }
-
-    
     
     func getArrayOf(completion: @escaping (_ success: Bool, _ items: [Dictionary<String,Any>]) -> Void)
     {
@@ -97,7 +100,6 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
                 }
                 completion(true, Arr)
             }
-            
         }
         
         print("---------------") 
