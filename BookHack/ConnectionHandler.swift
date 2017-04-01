@@ -67,20 +67,21 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
         })
     }
     
-    func uploadBookPicture(_ picture: UIImage, completion: @escaping (_ success: Bool) -> Void) {
+    func uploadBookPicture(_ picture: UIImage, completion: @escaping (_ success: Bool, _ addressurl:URL) -> Void) {
         let blob = container!.blockBlobReference(fromName: "bookCover")
         
         let imageData = UIImageJPEGRepresentation(picture, 1.0) as Data!
         
         // Use another method for pictures
         blob.upload(from: imageData!) { (error: Error?) in
-            if error != nil {
-                completion(true)
+            if error == nil {
+                completion(true,blob.storageUri.primaryUri)
             } else {
-                completion(false)
+                completion(false,URL(string: "fail")!)
             }
         }
     }
+    
     
     func getBlobList() {
         container!.listBlobsSegmented(with: nil, prefix: nil, useFlatBlobListing: true, blobListingDetails: [], maxResults: 50) { (error : Error?, results : AZSBlobResultSegment?) -> Void in

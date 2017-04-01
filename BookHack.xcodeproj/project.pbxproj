@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045F981B1E905B5700C38C64 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F981A1E905B5700C38C64 /* BookCollectionViewCell.swift */; };
 		047CEAB81E901A1100B14BD0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEAB71E901A1100B14BD0 /* MainViewController.swift */; };
 		047CEABA1E901A2200B14BD0 /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */; };
 		047CEABC1E9025C000B14BD0 /* BookConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEABB1E9025C000B14BD0 /* BookConstants.swift */; };
+		46553178D2DE406C44FC6D35 /* Pods_BookHack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 988D55E7A4A1413F0D29062D /* Pods_BookHack.framework */; };
 		9C35A4B41DE4EF8000650581 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C35A4B31DE4EF8000650581 /* SafariServices.framework */; };
 		9C35A4B61DE4EF8500650581 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C35A4B51DE4EF8500650581 /* Security.framework */; };
 		9CA121761DAC7FFD000C2FCA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA121751DAC7FFD000C2FCA /* WebKit.framework */; };
@@ -27,9 +29,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045F981A1E905B5700C38C64 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		047CEAB71E901A1100B14BD0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
 		047CEABB1E9025C000B14BD0 /* BookConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookConstants.swift; sourceTree = "<group>"; };
+		988D55E7A4A1413F0D29062D /* Pods_BookHack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookHack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C35A4B31DE4EF8000650581 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		9C35A4B51DE4EF8500650581 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9CA121751DAC7FFD000C2FCA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -43,10 +47,12 @@
 		A2D9CBE81943D1340017F096 /* BookHack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookHack-Bridging-Header.h"; sourceTree = "<group>"; };
 		A2E767C5194594DC00869113 /* ToDoItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItemViewController.swift; sourceTree = "<group>"; };
 		A31A89F61BF3FDFA00C7B656 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D3A5E11C074C84DBD7067E20 /* Pods-BookHack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookHack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookHack/Pods-BookHack.debug.xcconfig"; sourceTree = "<group>"; };
 		DBA1A1C51E902B8F00316587 /* AZSClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AZSClient.framework; path = BookHack/AZSClient.framework; sourceTree = "<group>"; };
 		DBA1A1C71E9030CF00316587 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		DBA1A1C91E9034C900316587 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MicrosoftAzureMobile.framework; path = BookHack/MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 		DBA1A1CB1E903F7200316587 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		FF910F192A6590F505F9536C /* Pods-BookHack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookHack.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookHack/Pods-BookHack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 				DBA1A1C61E902B8F00316587 /* AZSClient.framework in Frameworks */,
 				9C35A4B41DE4EF8000650581 /* SafariServices.framework in Frameworks */,
 				9CA121761DAC7FFD000C2FCA /* WebKit.framework in Frameworks */,
+				46553178D2DE406C44FC6D35 /* Pods_BookHack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +82,7 @@
 				9C35A4B51DE4EF8500650581 /* Security.framework */,
 				9C35A4B31DE4EF8000650581 /* SafariServices.framework */,
 				9CA121751DAC7FFD000C2FCA /* WebKit.framework */,
+				988D55E7A4A1413F0D29062D /* Pods_BookHack.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -85,6 +93,7 @@
 				A2D9CBC01943C2540017F096 /* BookHack */,
 				A2D9CBBF1943C2540017F096 /* Products */,
 				9CA121741DAC7FFD000C2FCA /* Frameworks */,
+				B6A4963A7AC0E241BB3A5BB7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +110,7 @@
 			children = (
 				A2D9CBC31943C2540017F096 /* AppDelegate.swift */,
 				A2D9CBCA1943C2540017F096 /* Main.storyboard */,
+				045F981A1E905B5700C38C64 /* BookCollectionViewCell.swift */,
 				A2D9CBCD1943C2540017F096 /* Images.xcassets */,
 				A2D9CBE31943C39D0017F096 /* ToDoTableViewController.swift */,
 				047CEAB71E901A1100B14BD0 /* MainViewController.swift */,
@@ -124,6 +134,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B6A4963A7AC0E241BB3A5BB7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D3A5E11C074C84DBD7067E20 /* Pods-BookHack.debug.xcconfig */,
+				FF910F192A6590F505F9536C /* Pods-BookHack.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +150,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2D9CBDD1943C2540017F096 /* Build configuration list for PBXNativeTarget "BookHack" */;
 			buildPhases = (
+				FD4C18E6793D9B786888190F /* [CP] Check Pods Manifest.lock */,
 				A2D9CBBA1943C2540017F096 /* Sources */,
 				A2D9CBBB1943C2540017F096 /* Frameworks */,
 				A2D9CBBC1943C2540017F096 /* Resources */,
+				7A286C64CC6CF44B1F93AE1D /* [CP] Embed Pods Frameworks */,
+				206876224D28D194B3748432 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,6 +214,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		206876224D28D194B3748432 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BookHack/Pods-BookHack-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A286C64CC6CF44B1F93AE1D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BookHack/Pods-BookHack-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD4C18E6793D9B786888190F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A2D9CBBA1943C2540017F096 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -200,6 +270,7 @@
 				DBA1A1CC1E903F7200316587 /* PostViewController.swift in Sources */,
 				A2E767C6194594DC00869113 /* ToDoItemViewController.swift in Sources */,
 				A2BD20971AC8A731007F7181 /* QSTodoDataModel.xcdatamodeld in Sources */,
+				045F981B1E905B5700C38C64 /* BookCollectionViewCell.swift in Sources */,
 				047CEABA1E901A2200B14BD0 /* ConnectionHandler.swift in Sources */,
 				A2D9CBE41943C39D0017F096 /* ToDoTableViewController.swift in Sources */,
 				A2D9CBC41943C2540017F096 /* AppDelegate.swift in Sources */,
@@ -313,6 +384,7 @@
 		};
 		A2D9CBDE1943C2540017F096 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3A5E11C074C84DBD7067E20 /* Pods-BookHack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -335,6 +407,7 @@
 		};
 		A2D9CBDF1943C2540017F096 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF910F192A6590F505F9536C /* Pods-BookHack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

@@ -4,3 +4,5 @@
 
 #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
 #import <AZSClient/AZSClient.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+

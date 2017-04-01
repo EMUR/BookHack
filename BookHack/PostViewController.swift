@@ -14,7 +14,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var ISBN: UITextField!
     @IBOutlet weak var bookName: UITextField!
     @IBOutlet weak var selectedImageView: UIImageView!
-    @IBOutlet weak var authorText: UIView!
+    @IBOutlet weak var authorText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +59,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func uploadPhoto(_ sender: UIButton) {
-        ConnectionHandler.sharedInstance.uploadBookPicture(selectedImageView.image!) { (success: Bool) in
+        ConnectionHandler.sharedInstance.uploadBookPicture(selectedImageView.image!) { (success: Bool, addressurl: URL) in
+            
+            ConnectionHandler.sharedInstance.addElement(Object: Book(names: self.bookName.text, auth: self.authorText.text, ISBNs: Int(self.ISBN.text!), urls: addressurl.absoluteString, created: Date()))
             // TODO: Loading indicator
             if success {
                 print("Done")
