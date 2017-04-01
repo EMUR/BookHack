@@ -23,6 +23,7 @@
 		DBA1A1C61E902B8F00316587 /* AZSClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA1A1C51E902B8F00316587 /* AZSClient.framework */; };
 		DBA1A1C81E9030CF00316587 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA1A1C71E9030CF00316587 /* libxml2.2.tbd */; };
 		DBA1A1CA1E9034C900316587 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA1A1C91E9034C900316587 /* MicrosoftAzureMobile.framework */; };
+		DBA1A1CC1E903F7200316587 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA1A1CB1E903F7200316587 /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		DBA1A1C51E902B8F00316587 /* AZSClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AZSClient.framework; path = BookHack/AZSClient.framework; sourceTree = "<group>"; };
 		DBA1A1C71E9030CF00316587 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		DBA1A1C91E9034C900316587 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MicrosoftAzureMobile.framework; path = BookHack/MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
+		DBA1A1CB1E903F7200316587 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */,
 				047CEABB1E9025C000B14BD0 /* BookConstants.swift */,
 				A2E767C5194594DC00869113 /* ToDoItemViewController.swift */,
+				DBA1A1CB1E903F7200316587 /* PostViewController.swift */,
 				A2D9CBC11943C2540017F096 /* Supporting Files */,
 				A31A89F61BF3FDFA00C7B656 /* Launch Screen.storyboard */,
 			);
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBA1A1CC1E903F7200316587 /* PostViewController.swift in Sources */,
 				A2E767C6194594DC00869113 /* ToDoItemViewController.swift in Sources */,
 				A2BD20971AC8A731007F7181 /* QSTodoDataModel.xcdatamodeld in Sources */,
 				047CEABA1E901A2200B14BD0 /* ConnectionHandler.swift in Sources */,

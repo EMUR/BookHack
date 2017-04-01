@@ -65,6 +65,21 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
         })
     }
     
+    func uploadBookPicture(_ picture: UIImage, completion: @escaping (_ success: Bool) -> Void) {
+        let blob = container!.blockBlobReference(fromName: "bookCover")
+        
+        let imageData = UIImagePNGRepresentation(picture) as Data!
+        
+        // Use another method for pictures
+        blob.upload(from: imageData!) { (error: Error?) in
+            if error != nil {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
+    
     func getBlobList() {
         container!.listBlobsSegmented(with: nil, prefix: nil, useFlatBlobListing: true, blobListingDetails: [], maxResults: 50) { (error : Error?, results : AZSBlobResultSegment?) -> Void in
             

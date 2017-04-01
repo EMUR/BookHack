@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="P2l-fe-yd5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SKq-aV-5uw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,7 +60,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sn7-zH-IVo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153" y="162"/>
+            <point key="canvasLocation" x="3092" y="161.46926536731635"/>
         </scene>
         <!--Add Item-->
         <scene sceneID="RI1-O5-vZS">
@@ -72,8 +74,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3pO-Tr-BjV">
-                                <rect key="frame" x="20" y="84" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3pO-Tr-BjV">
+                                <rect key="frame" x="16" y="84" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
@@ -103,9 +105,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MmN-xB-6h2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2886" y="168"/>
+            <point key="canvasLocation" x="3824.8000000000002" y="167.76611694152925"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Item-->
         <scene sceneID="2aH-qa-Gbi">
             <objects>
                 <viewController id="P2l-fe-yd5" customClass="MainViewController" customModule="BookHack" customModuleProvider="target" sceneMemberID="viewController">
@@ -118,10 +120,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="y8t-4r-gWn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRy-dS-X0i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="642" y="169"/>
+            <point key="canvasLocation" x="1465" y="-212"/>
         </scene>
         <!--Azure Mobile Apps-->
         <scene sceneID="yNt-7v-plj">
@@ -145,7 +148,99 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FRr-xT-xwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1359.375" y="168.75"/>
+            <point key="canvasLocation" x="2298.4000000000001" y="168.6656671664168"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="hWo-3k-DwJ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="SKq-aV-5uw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="zD9-EQ-lG1">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="P2l-fe-yd5" kind="relationship" relationship="viewControllers" id="bre-3t-l2Z"/>
+                        <segue destination="TPY-3i-xbv" kind="relationship" relationship="viewControllers" id="Jo0-fP-B8H"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F5e-kB-kQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640.79999999999995" y="168.6656671664168"/>
+        </scene>
+        <!--Post Book-->
+        <scene sceneID="knO-ic-zvh">
+            <objects>
+                <viewController id="TPY-3i-xbv" customClass="PostViewController" customModule="BookHack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iHy-Bc-DTn"/>
+                        <viewControllerLayoutGuide type="bottom" id="PIG-3z-v6Z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ffH-h4-2cY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e6e-FR-XKj">
+                                <rect key="frame" x="16" y="28" width="343" height="261"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="261" id="Bvr-dA-5uq"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hw-4x-nQr">
+                                <rect key="frame" x="16" y="297" width="170" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="Bxy-mu-j30"/>
+                                    <constraint firstAttribute="height" constant="51" id="fMH-X7-1IE"/>
+                                </constraints>
+                                <state key="normal" title="Choose Photo"/>
+                                <connections>
+                                    <action selector="photoFromLibrary:" destination="TPY-3i-xbv" eventType="touchUpInside" id="CKt-pg-oNF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XnG-FM-pVr">
+                                <rect key="frame" x="189" y="297" width="170" height="51"/>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="TPY-3i-xbv" eventType="touchUpInside" id="9Ej-x9-Vki"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gx6-g7-GFD">
+                                <rect key="frame" x="16" y="356" width="343" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="m5c-eh-UFF"/>
+                                </constraints>
+                                <state key="normal" title="Upload Photo"/>
+                                <connections>
+                                    <action selector="photoFromLibrary:" destination="TPY-3i-xbv" eventType="touchUpInside" id="utx-XC-8hO"/>
+                                    <action selector="uploadPhoto:" destination="TPY-3i-xbv" eventType="touchUpInside" id="JnF-kH-n7g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XnG-FM-pVr" firstAttribute="leading" secondItem="4hw-4x-nQr" secondAttribute="trailing" constant="3" id="4Cz-Xk-Zw5"/>
+                            <constraint firstItem="e6e-FR-XKj" firstAttribute="leading" secondItem="4hw-4x-nQr" secondAttribute="leading" id="DMq-i9-aVr"/>
+                            <constraint firstItem="XnG-FM-pVr" firstAttribute="baseline" secondItem="4hw-4x-nQr" secondAttribute="firstBaseline" id="Fbn-7G-DLU"/>
+                            <constraint firstItem="gx6-g7-GFD" firstAttribute="top" secondItem="4hw-4x-nQr" secondAttribute="bottom" constant="8" symbolic="YES" id="JdT-xG-ENb"/>
+                            <constraint firstItem="4hw-4x-nQr" firstAttribute="top" secondItem="XnG-FM-pVr" secondAttribute="top" id="JjJ-9b-RwI"/>
+                            <constraint firstItem="e6e-FR-XKj" firstAttribute="trailing" secondItem="ffH-h4-2cY" secondAttribute="trailingMargin" id="KZP-na-2W8"/>
+                            <constraint firstItem="4hw-4x-nQr" firstAttribute="top" secondItem="e6e-FR-XKj" secondAttribute="bottom" constant="8" symbolic="YES" id="KwA-6r-Qwi"/>
+                            <constraint firstItem="e6e-FR-XKj" firstAttribute="trailing" secondItem="XnG-FM-pVr" secondAttribute="trailing" id="OSg-ru-4oq"/>
+                            <constraint firstItem="gx6-g7-GFD" firstAttribute="leading" secondItem="4hw-4x-nQr" secondAttribute="leading" id="Rk7-Ef-SSs"/>
+                            <constraint firstItem="gx6-g7-GFD" firstAttribute="trailing" secondItem="XnG-FM-pVr" secondAttribute="trailing" id="WCd-Mr-UMv"/>
+                            <constraint firstItem="4hw-4x-nQr" firstAttribute="baseline" secondItem="XnG-FM-pVr" secondAttribute="firstBaseline" id="Ybp-z2-TxK"/>
+                            <constraint firstItem="e6e-FR-XKj" firstAttribute="top" secondItem="iHy-Bc-DTn" secondAttribute="bottom" constant="8" symbolic="YES" id="YnN-vl-zU4"/>
+                            <constraint firstItem="e6e-FR-XKj" firstAttribute="leading" secondItem="ffH-h4-2cY" secondAttribute="leadingMargin" id="jq2-bx-tqz"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Post Book" id="hhh-c5-TIT"/>
+                    <connections>
+                        <outlet property="selectedImageView" destination="e6e-FR-XKj" id="Hou-z8-fNE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cc8-Gh-YSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464.5" y="527.5"/>
         </scene>
     </scenes>
 </document>
