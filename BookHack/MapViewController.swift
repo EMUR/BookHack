@@ -43,13 +43,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.requestWhenInUseAuthorization()
         
         view.backgroundColor = UIColor.gray
-        
-        instantiateController()
     }
     
     func instantiateController() {
-        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: ConnectionHandler.dataType)
-        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!
+//        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: ConnectionHandler.dataType)
+//        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!
         
         let searchDistance:Double =  5.00 //float value in KM
         
@@ -59,17 +57,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let minLon = mapView.userLocation.coordinate.longitude - searchDistance / fabs(cos(deg2rad(degrees: mapView.userLocation.coordinate.latitude))*69)
         let maxLon = mapView.userLocation.coordinate.longitude + searchDistance / fabs(cos(deg2rad(degrees: mapView.userLocation.coordinate.latitude))*69)
         
-        // show only non-completed items
-        fetchRequest.predicate = NSPredicate(format: "bookname CONTAINS %@", "test")
+        ConnectionHandler.sharedInstance.findBooksWithin(maxLat: maxLat, minLat: minLat, maxLon: maxLon, minLon: minLon) { (done, results) in
+            
+            print("\(maxLat)   \((minLat))")
+            print("\(maxLon)   \((minLon))")
+
         
-        // sort by item text
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
-        
-        // Note: if storing a lot of data, you should specify a cache for the last parameter
-        // for more information, see Apple's documentation: http://go.microsoft.com/fwlink/?LinkId=524591&clcid=0x409
-        fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        
-        fetchedResultController!.delegate = self
+            print("Found \(results.count) books")
+            for i in results
+            {
+                print(i["bookname"] as! String)
+            }
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,18 +100,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo:
+        NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         DispatchQueue.main.async(execute: { () -> Void in
             print(controller.fetchedObjects ?? "Nothing fetched")
         })
     }
+    
+    
+
     
     private func deg2rad(degrees:Double) -> Double {
         return degrees * Double.pi / 180
     }
     
     @IBAction func getNearbyBooks(_ sender: UIButton) {
-        getNearbyBooks()
+        instantiateController()
     }
     
     @IBAction func centerLocationButtonPressed(_ sender: UIButton) {
