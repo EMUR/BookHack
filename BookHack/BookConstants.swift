@@ -19,7 +19,7 @@ class Book: NSObject, MKAnnotation {
         long = longitude
         lat = latitude
         title = names
-        subtitle = auth
+        //subtitle = auth
     }
     
     var coordinate: CLLocationCoordinate2D {
