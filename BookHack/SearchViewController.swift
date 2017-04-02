@@ -16,6 +16,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillLayoutSubviews() {
         searchField.alpha = 0.0
         searchButton.alpha = 0.0
+        self.searchField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+
 //        self.searchField.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/10)
     }
     
@@ -23,8 +25,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         UIView.animate(withDuration: 0.3, animations: {
             self.searchField.alpha = 1.0
-            self.searchField.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height * 0.009)
             self.searchButton.alpha = 1.0
+            self.searchField.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+
 
         }) { (done:Bool) in
             self.searchField.becomeFirstResponder()
@@ -127,6 +130,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
 
+    }
+    @IBAction func dissmiss(_ sender: Any) {
+        self.dismiss(animated: false) { 
+            
+        }
     }
 
     /*

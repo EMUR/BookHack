@@ -60,8 +60,14 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     @IBAction func doSearch(_ sender: Any) {
+        UIView.animate(withDuration: 0.05) {
+            self.seachView.transform = CGAffineTransform(translationX: 0, y: 100.0)
+        }
+
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "search") as! SearchViewController
-        self.present(vc, animated: false, completion: nil)
+        self.present(vc, animated: false) { 
+            self.seachView.transform = CGAffineTransform(translationX: 0, y: -10.0)
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
