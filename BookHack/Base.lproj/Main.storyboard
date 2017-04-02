@@ -291,6 +291,37 @@
             </objects>
             <point key="canvasLocation" x="1464.8" y="-158.77061469265368"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="WhZ-o7-PLT">
+            <objects>
+                <viewController id="Z7g-pU-sIS" customClass="LoginViewController" customModule="BookHack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kjk-Uq-oL3"/>
+                        <viewControllerLayoutGuide type="bottom" id="mnT-bg-Vo6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X4f-5A-AQf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7B-Oj-cm1">
+                                <rect key="frame" x="168" y="318" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="Z7g-pU-sIS" eventType="touchUpInside" id="O8b-tT-BSh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="SKq-aV-5uw" kind="show" identifier="loggedIn" id="ySv-BW-GK0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1pg-YO-mOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-85" y="173"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hWo-3k-DwJ">
             <objects>

@@ -37,7 +37,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.books.append(i)
             }
         }
-        loginAndGetData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,25 +75,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     //FaceBook Auth added by Sherif
-    func loginAndGetData() {
-        
-        guard let client = ConnectionHandler.sharedInstance.table?.client, client.currentUser == nil else {
-            return
-        }
-        
-        let loginBlock: MSClientLoginBlock = {(user, error) -> Void in
-            if (error != nil) {
-                print("Error: \(error?.localizedDescription)")
-            }
-            else {
-                client.currentUser = user
-                print("User logged in: \(user?.userId)")
-            }
-        }
-        
-        client.login(withProvider:"facebook", urlScheme: "bookhack", controller: self, animated: true, completion: loginBlock)
-        
-    }
     //let client = MSClient(applicationURLString: "bookhack")
    // let table = client.tableWithName("Book")
     
