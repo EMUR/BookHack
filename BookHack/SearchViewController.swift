@@ -10,6 +10,8 @@ import UIKit
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var notFound: UILabel!
+    @IBOutlet weak var loadingIn: UIActivityIndicatorView!
     
     override func viewWillLayoutSubviews() {
         searchField.alpha = 0.0
@@ -69,9 +71,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = resultsTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BookTableViewCell
-        
-        print("\(results[indexPath.row]["bookname"] as? String)")
-        
+                
         cell.coverImg.sd_setImage(with: URL(string: results[indexPath.row]["url"] as! String) , placeholderImage: UIImage(named: ""))
         
     
@@ -88,6 +88,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func preformSearch(_ sender: Any) {
         ConnectionHandler.sharedInstance.findBooks(nameOfBooks: searchField.text) { (good:Bool, ar:[Dictionary<String, Any>]) in
             
+            self.view.viewWithTag(2)?.isHidden = false
+            
+            self.notFound.isHidden = true
+            self.loadingIn.isHidden = false
+
+            
             self.results.removeAll()
             
             if(good)
@@ -99,15 +105,28 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
             
-            
             DispatchQueue.main.async {
+                
+                if(self.results.count == 0)
+                {
+                    self.view.viewWithTag(2)!.isHidden = false
+                    self.notFound.isHidden = false
+
+                }else
+                {
+                self.view.viewWithTag(2)!.isHidden = true
+                }
+                
+                self.loadingIn.isHidden = true
+                    
+
+
                 self.resultsTable.reloadData()
                 self.resultsTable.endUpdates()
             }
             
         }
 
-      
     }
 
     /*

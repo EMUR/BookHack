@@ -139,20 +139,25 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate {
         }
     }
     
+    
     func findBooks(nameOfBooks:String! , completion: @escaping (_ success: Bool, _ items: [Dictionary<String,Any>]) -> Void) {
         var Arr = [Dictionary<String,Any>]()
         
-        table?.read{ (result, error) in
+        
+        
+        let Pred = NSPredicate(format: "bookname CONTAINS %@", nameOfBooks)
+        
+        table?.read(with: Pred, completion: { (result, error) in
             if let err = error {
                 print("ERROR ", err)
             } else if let items = result?.items {
                 for item in items {
-                    if ((item["bookname"] as! String) == nameOfBooks) {
                         Arr.append(item as! [String : Any])
-                    }
                 }
                 completion(true, Arr)
             }
-        }
+        })
     }
+    
+    
 }
