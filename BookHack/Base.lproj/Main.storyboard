@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -290,6 +291,7 @@
                     <connections>
                         <segue destination="P2l-fe-yd5" kind="relationship" relationship="viewControllers" id="bre-3t-l2Z"/>
                         <segue destination="TPY-3i-xbv" kind="relationship" relationship="viewControllers" id="Jo0-fP-B8H"/>
+                        <segue destination="LYd-Ac-jIl" kind="relationship" relationship="viewControllers" id="AVR-Xp-DTc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5e-kB-kQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -423,5 +425,54 @@
             </objects>
             <point key="canvasLocation" x="1463.2" y="526.6866566716642"/>
         </scene>
+        <!--Map-->
+        <scene sceneID="xZD-3s-1az">
+            <objects>
+                <viewController id="LYd-Ac-jIl" customClass="MapViewController" customModule="BookHack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6i6-2d-0zc"/>
+                        <viewControllerLayoutGuide type="bottom" id="aeb-Kq-eyL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kSI-Dc-7fK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Zyj-wt-X4h">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1t-KE-fZE">
+                                <rect key="frame" x="313" y="564" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="AWQ-qq-kDT"/>
+                                    <constraint firstAttribute="width" secondItem="d1t-KE-fZE" secondAttribute="height" multiplier="1:1" id="CPS-ta-5aN"/>
+                                </constraints>
+                                <state key="normal" image="loc"/>
+                                <connections>
+                                    <action selector="centerLocationButtonPressed:" destination="LYd-Ac-jIl" eventType="touchUpInside" id="Lkf-lv-U0O"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Zyj-wt-X4h" secondAttribute="trailing" id="4uv-hp-pfc"/>
+                            <constraint firstItem="Zyj-wt-X4h" firstAttribute="top" secondItem="kSI-Dc-7fK" secondAttribute="top" id="Fq6-xy-aoa"/>
+                            <constraint firstItem="d1t-KE-fZE" firstAttribute="top" secondItem="Zyj-wt-X4h" secondAttribute="bottom" constant="-54" id="PK5-Tv-dtJ"/>
+                            <constraint firstItem="Zyj-wt-X4h" firstAttribute="leading" secondItem="kSI-Dc-7fK" secondAttribute="leading" id="VDM-jQ-45l"/>
+                            <constraint firstItem="d1t-KE-fZE" firstAttribute="leading" secondItem="Zyj-wt-X4h" secondAttribute="trailing" constant="-62" id="e6f-Hh-FqD"/>
+                            <constraint firstItem="Zyj-wt-X4h" firstAttribute="bottom" secondItem="aeb-Kq-eyL" secondAttribute="top" id="je1-wd-oX0"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" id="Ge1-s8-hHm"/>
+                    <connections>
+                        <outlet property="mapView" destination="Zyj-wt-X4h" id="53p-WV-x51"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r3Z-4P-68v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464.8" y="1190.5547226386807"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="loc" width="288" height="287"/>
+    </resources>
 </document>

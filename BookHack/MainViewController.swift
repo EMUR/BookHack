@@ -27,7 +27,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         seachView.layer.shadowOffset = CGSize(width: 3.0, height: 2.0)
         seachView.layer.shadowRadius = 3
 
-        searchField.backgroundColor = UIColor(colorLiteralRed: Float(253), green: Float(253), blue: Float(253), alpha: 1.0)
+        //searchField.backgroundColor = UIColor(colorLiteralRed: Float(253), green: Float(253), blue: Float(253), alpha: 1.0)
 
         
         previewCollection.delegate = self
