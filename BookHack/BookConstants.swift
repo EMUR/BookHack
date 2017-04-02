@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 class Book: NSObject, MKAnnotation {
-    init(names:String!, auth:String!, ISBNs:Int!, urls:String!, created:Date!, longitude:Float, latitude:Float) {
+    init(names:String!, auth:String!, ISBNs:Int!, urls:String!, created:Date!, longitude:Float, latitude:Float, seller:String!, condition:String!, price:Double!) {
         name = names
         author = auth
         ISBN = ISBNs
@@ -19,6 +19,9 @@ class Book: NSObject, MKAnnotation {
         long = longitude
         lat = latitude
         title = names
+        Bseller = seller
+        Bprice = price
+        Bcondition = condition
         //subtitle = auth
     }
     
@@ -47,4 +50,7 @@ class Book: NSObject, MKAnnotation {
     var createdAt:Date!
     var long:Float
     var lat:Float
+    var Bseller:String!
+    var Bcondition:String!
+    var Bprice:Double!
 }
