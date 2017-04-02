@@ -87,7 +87,7 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
         
         if let bookObj = Object as? Book {
             
-            let itemToInsert = ["bookname": bookObj.name, "author": bookObj.author, "ISBN": bookObj.ISBN, "url": bookObj.url] as [AnyHashable : Any]
+            let itemToInsert = ["bookname": bookObj.name, "author": bookObj.author, "ISBN": bookObj.ISBN, "url": bookObj.url, "longitude": bookObj.long, "latitude": bookObj.lat] as [AnyHashable : Any]
             
             InitilizeConnection.sharedInstance.table!.insert(itemToInsert, completion: { (item, error) in
                 if error != nil {
@@ -115,6 +115,27 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate
             }
         }
         
-        print("---------------") 
+    }
+    
+    func findBooks(nameOfBooks:String! , completion: @escaping (_ success: Bool, _ items: [Dictionary<String,Any>]) -> Void)
+    {
+        
+        var Arr = [Dictionary<String,Any>]()
+        
+        
+        InitilizeConnection.sharedInstance.table?.read{ (result, error) in
+            if let err = error {
+                print("ERROR ", err)
+            } else if let items = result?.items {
+                for item in items {
+                    if ((item["bookname"] as! String) == nameOfBooks)
+                    {
+                        Arr.append(item as! [String : Any])
+                    }
+                }
+                completion(true, Arr)
+            }
+        }
+        
     }
 }

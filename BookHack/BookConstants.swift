@@ -10,16 +10,21 @@ import Foundation
 
 
 struct Book {
-    init(names:String!, auth:String!, ISBNs:Int!, urls:String!, created:Date!) {
+    init(names:String!, auth:String!, ISBNs:Int!, urls:String!, created:Date!, longitude:Float, latitude:Float) {
         name = names
         author = auth
         ISBN = ISBNs
         url = urls
         createdAt = created
+        long = longitude
+        lat = latitude
+        
     }
     var name:String!
     var author:String!
     var ISBN:Int!
     var url:String!
     var createdAt:Date!
+    var long:Float
+    var lat:Float
 }

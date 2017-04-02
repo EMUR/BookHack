@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		045655451E906EB400C15163 /* InitilizeConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045655441E906EB400C15163 /* InitilizeConnection.swift */; };
 		045655471E906FB700C15163 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045655461E906FB700C15163 /* SearchViewController.swift */; };
+		045655491E90722400C15163 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045655481E90722400C15163 /* BookTableViewCell.swift */; };
 		045F981B1E905B5700C38C64 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F981A1E905B5700C38C64 /* BookCollectionViewCell.swift */; };
 		047CEAB81E901A1100B14BD0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEAB71E901A1100B14BD0 /* MainViewController.swift */; };
 		047CEABA1E901A2200B14BD0 /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		045655441E906EB400C15163 /* InitilizeConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitilizeConnection.swift; sourceTree = "<group>"; };
 		045655461E906FB700C15163 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		045655481E90722400C15163 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		045F981A1E905B5700C38C64 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		047CEAB71E901A1100B14BD0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				A2D9CBC31943C2540017F096 /* AppDelegate.swift */,
 				A2D9CBCA1943C2540017F096 /* Main.storyboard */,
+				045655481E90722400C15163 /* BookTableViewCell.swift */,
 				045F981A1E905B5700C38C64 /* BookCollectionViewCell.swift */,
 				045655441E906EB400C15163 /* InitilizeConnection.swift */,
 				A2D9CBCD1943C2540017F096 /* Images.xcassets */,
@@ -185,6 +188,7 @@
 				TargetAttributes = {
 					A2D9CBBD1943C2540017F096 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 86QLR2USUV;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -277,6 +281,7 @@
 				045655471E906FB700C15163 /* SearchViewController.swift in Sources */,
 				A2E767C6194594DC00869113 /* ToDoItemViewController.swift in Sources */,
 				A2BD20971AC8A731007F7181 /* QSTodoDataModel.xcdatamodeld in Sources */,
+				045655491E90722400C15163 /* BookTableViewCell.swift in Sources */,
 				045F981B1E905B5700C38C64 /* BookCollectionViewCell.swift in Sources */,
 				047CEABA1E901A2200B14BD0 /* ConnectionHandler.swift in Sources */,
 				A2D9CBE41943C39D0017F096 /* ToDoTableViewController.swift in Sources */,
@@ -397,13 +402,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 86QLR2USUV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/BookHack",
 				);
 				INFOPLIST_FILE = BookHack/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Microsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -419,13 +425,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 86QLR2USUV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/BookHack",
 				);
 				INFOPLIST_FILE = BookHack/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Microsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
