@@ -14,9 +14,15 @@
 // limitations under the License.
 //
 import UIKit
+//import FBSDKCoreKit
+//import FBSDKShareKit
+//import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    //FaceBook Auth
+    
                             
     var window: UIWindow?
 
@@ -24,6 +30,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         return true
+    }
+    
+    //facebook auth
+   // var mainViewController: MainViewController?
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.scheme?.lowercased() == "bookhack" {
+            return (ConnectionHandler.sharedInstance.table?.client.resume(with: url as URL))!
+        }
+        else {
+            return false
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

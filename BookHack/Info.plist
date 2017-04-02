@@ -43,5 +43,16 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>Microsoft.BookHack</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>bookhack</string>
+            </array>
+        </dict>
+    </array>
 </dict>
 </plist>
