@@ -13,7 +13,6 @@ import CoreLocation
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
-    let reuseID = "KoobBookAnnotationView"
     var locationManager: CLLocationManager!
     
     fileprivate var span: CLLocationDegrees{
@@ -43,14 +42,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         view.backgroundColor = UIColor.gray
     }
     
-    func instantiateController() {
+    func instantiateController(withCenter center: CLLocation?) {
+        var location: CLLocation
+        
+        if center != nil {
+            location = center!
+        } else {
+            location = mapView.userLocation.location!
+        }
+        
         let searchDistance:Double =  5.00 //float value in KM
         
         let minLat = mapView.userLocation.coordinate.latitude - (searchDistance / 69)
         let maxLat = mapView.userLocation.coordinate.latitude + (searchDistance / 69)
         
-        let minLon = mapView.userLocation.coordinate.longitude - searchDistance / fabs(cos(deg2rad(degrees: mapView.userLocation.coordinate.latitude))*69)
-        let maxLon = mapView.userLocation.coordinate.longitude + searchDistance / fabs(cos(deg2rad(degrees: mapView.userLocation.coordinate.latitude))*69)
+        let minLon = mapView.userLocation.coordinate.longitude - searchDistance / fabs(cos(deg2rad(degrees: location.coordinate.latitude))*69)
+        let maxLon = mapView.userLocation.coordinate.longitude + searchDistance / fabs(cos(deg2rad(degrees: location.coordinate.latitude))*69)
         
         ConnectionHandler.sharedInstance.findBooksWithin(maxLat: maxLat, minLat: minLat, maxLon: maxLon, minLon: minLon) { (done, results) in
             print("\(maxLat)   \((minLat))")
@@ -71,9 +78,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        centerOnUserLocation(animated: true)
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.isEqual(mapView.userLocation as MKAnnotation) {
+            return nil
+        }
+        
+        let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+
+        annotationView?.image = UIImage(named: "pin.png")
+        
+        return annotationView
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -84,6 +106,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         centerOnUserLocation(animated: true)
+        instantiateController(withCenter: nil)
     }
     
     private func deg2rad(degrees:Double) -> Double {
@@ -91,10 +114,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @IBAction func getNearbyBooks(_ sender: UIButton) {
-        instantiateController()
+        instantiateController(withCenter: currentMapCenter)
     }
     
     @IBAction func centerLocationButtonPressed(_ sender: UIButton) {
         centerOnUserLocation(animated: true)
+        instantiateController(withCenter: nil)
     }
 }
