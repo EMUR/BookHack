@@ -41,8 +41,34 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.requestWhenInUseAuthorization()
         
         view.backgroundColor = UIColor.gray
+    }
+    
+    func instantiateController() {
+        let searchDistance:Double =  5.00 //float value in KM
         
-        //centerOnUserLocation(animated: true)
+        let minLat = mapView.userLocation.coordinate.latitude - (searchDistance / 69)
+        let maxLat = mapView.userLocation.coordinate.latitude + (searchDistance / 69)
+        
+        let minLon = mapView.userLocation.coordinate.longitude - searchDistance / fabs(cos(deg2rad(degrees: mapView.userLocation.coordinate.latitude))*69)
+        let maxLon = mapView.userLocation.coordinate.longitude + searchDistance / fabs(cos(deg2rad(degrees: mapView.userLocation.coordinate.latitude))*69)
+        
+        ConnectionHandler.sharedInstance.findBooksWithin(maxLat: maxLat, minLat: minLat, maxLon: maxLon, minLon: minLon) { (done, results) in
+            print("\(maxLat)   \((minLat))")
+            print("\(maxLon)   \((minLon))")
+        
+            print("Found \(results.count) books")
+            
+            var annotation = [MKAnnotation]()
+            
+            for i in results {
+                print(i)
+                let obj = Book(names: i["bookname"] as! String, auth: i["author"] as! String, ISBNs: i["ISBN"] as! Int, urls: i["url"] as! String, created: i["createdAt"] as! Date, longitude: i["longitude"] as! Float, latitude : i["latitude"] as! Float)
+                annotation.append(obj)
+                self.mapView.addAnnotation(obj)
+            }
+            
+            self.mapView.showAnnotations(annotation, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +84,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         centerOnUserLocation(animated: true)
+    }
+    
+    private func deg2rad(degrees:Double) -> Double {
+        return degrees * Double.pi / 180
+    }
+    
+    @IBAction func getNearbyBooks(_ sender: UIButton) {
+        instantiateController()
     }
     
     @IBAction func centerLocationButtonPressed(_ sender: UIButton) {
