@@ -164,7 +164,7 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate {
         
         let Pred = NSPredicate(format: "latitude <= %f ", maxLat)
         let Pred2 = NSPredicate(format: "latitude >= %f", minLat)
-        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [Pred, Pred2])
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [Pred])
         
         table?.read(with: predicate, completion: { (result, error) in
             if let err = error {

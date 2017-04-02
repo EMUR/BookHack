@@ -18,7 +18,8 @@ class Book: NSObject, MKAnnotation {
         createdAt = created
         long = longitude
         lat = latitude
-        
+        title = names
+        subtitle = auth
     }
     
     var coordinate: CLLocationCoordinate2D {
@@ -31,10 +32,11 @@ class Book: NSObject, MKAnnotation {
             long = Float(coordinate.longitude)
         }
     }
+    
     var location: CLLocation {
         return CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
     }
-    var radius: Double?
+    
     var title: String?
     var subtitle: String?
     

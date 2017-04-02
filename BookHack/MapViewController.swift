@@ -58,9 +58,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
             print("Found \(results.count) books")
             
+            var annotation = [MKAnnotation]()
+            
             for i in results {
-                self.mapView.addAnnotation(i as! MKAnnotation)
+                print(i)
+                let obj = Book(names: i["bookname"] as! String, auth: i["author"] as! String, ISBNs: i["ISBN"] as! Int, urls: i["url"] as! String, created: i["createdAt"] as! Date, longitude: i["longitude"] as! Float, latitude : i["latitude"] as! Float)
+                annotation.append(obj)
+                self.mapView.addAnnotation(obj)
             }
+            
+            self.mapView.showAnnotations(annotation, animated: true)
         }
     }
     
