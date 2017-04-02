@@ -30,6 +30,8 @@
 	<string>Access you Photo Library</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Access your Camera</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To Help You Finding Boooks Near You</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
