@@ -14,6 +14,7 @@
 		047CEABA1E901A2200B14BD0 /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */; };
 		047CEABC1E9025C000B14BD0 /* BookConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEABB1E9025C000B14BD0 /* BookConstants.swift */; };
 		04F3C54A1E90F1C000600A71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3C5491E90F1C000600A71 /* LoginViewController.swift */; };
+		04F3C54C1E9105AD00600A71 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3C54B1E9105AD00600A71 /* BookDetailViewController.swift */; };
 		46553178D2DE406C44FC6D35 /* Pods_BookHack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 988D55E7A4A1413F0D29062D /* Pods_BookHack.framework */; };
 		9C35A4B41DE4EF8000650581 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C35A4B31DE4EF8000650581 /* SafariServices.framework */; };
 		9C35A4B61DE4EF8500650581 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C35A4B51DE4EF8500650581 /* Security.framework */; };
@@ -38,6 +39,7 @@
 		047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
 		047CEABB1E9025C000B14BD0 /* BookConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookConstants.swift; sourceTree = "<group>"; };
 		04F3C5491E90F1C000600A71 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		04F3C54B1E9105AD00600A71 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		988D55E7A4A1413F0D29062D /* Pods_BookHack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookHack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C35A4B31DE4EF8000650581 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		9C35A4B51DE4EF8500650581 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -114,6 +116,7 @@
 			children = (
 				A2D9CBC31943C2540017F096 /* AppDelegate.swift */,
 				A2D9CBCA1943C2540017F096 /* Main.storyboard */,
+				04F3C54B1E9105AD00600A71 /* BookDetailViewController.swift */,
 				04F3C5491E90F1C000600A71 /* LoginViewController.swift */,
 				DBE758D51E909E8D0079E324 /* MapViewController.swift */,
 				045655481E90722400C15163 /* BookTableViewCell.swift */,
@@ -276,6 +279,7 @@
 			files = (
 				DBA1A1CC1E903F7200316587 /* PostViewController.swift in Sources */,
 				045655471E906FB700C15163 /* SearchViewController.swift in Sources */,
+				04F3C54C1E9105AD00600A71 /* BookDetailViewController.swift in Sources */,
 				A2BD20971AC8A731007F7181 /* QSTodoDataModel.xcdatamodeld in Sources */,
 				045655491E90722400C15163 /* BookTableViewCell.swift in Sources */,
 				045F981B1E905B5700C38C64 /* BookCollectionViewCell.swift in Sources */,

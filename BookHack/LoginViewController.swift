@@ -9,9 +9,11 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -22,7 +24,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginAction(_ sender: Any) {
-        
+    
         guard let client = ConnectionHandler.sharedInstance.table?.client, client.currentUser == nil else {
             return
         }
