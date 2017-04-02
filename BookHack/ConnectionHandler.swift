@@ -114,7 +114,7 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate {
     func addElement(Object:Any) {
         if let bookObj = Object as? Book {
             
-            let itemToInsert = ["bookname": bookObj.name, "author": bookObj.author, "ISBN": bookObj.ISBN, "url": bookObj.url, "longitude": bookObj.long, "latitude": bookObj.lat] as [AnyHashable : Any]
+            let itemToInsert = ["bookname": bookObj.name, "author": bookObj.author, "ISBN": bookObj.ISBN, "url": bookObj.url, "longitude": bookObj.long, "latitude": bookObj.lat, "seller": bookObj.Bseller, "condition": bookObj.Bcondition, "price": bookObj.Bprice] as [AnyHashable : Any]
             
             table!.insert(itemToInsert, completion: { (item, error) in
                 if error != nil {

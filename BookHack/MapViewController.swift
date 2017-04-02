@@ -69,7 +69,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             for i in results {
                 print(i)
-                let obj = Book(names: i["bookname"] as! String, auth: i["author"] as! String, ISBNs: i["ISBN"] as! Int, urls: i["url"] as! String, created: i["createdAt"] as! Date, longitude: i["longitude"] as! Float, latitude : i["latitude"] as! Float)
+            
+                let obj =  Book(names: i["bookname"] as! String, auth: i["author"] as! String, ISBNs: i["ISBN"] as! Int, urls: i["url"] as! String, created: i["createdAt"] as! Date, longitude: i["longitude"] as! Float, latitude: i["latitude"] as! Float, seller: i["seller"] as! String, condition: i["condition"] as! String, price: i["price"] as! Double)
+                
                 annotation.append(obj)
                 self.mapView.addAnnotation(obj)
             }

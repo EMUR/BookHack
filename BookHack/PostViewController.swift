@@ -59,9 +59,11 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func uploadPhoto(_ sender: UIButton) {
+        
         ConnectionHandler.sharedInstance.uploadBookPicture(selectedImageView.image!) { (success: Bool, addressurl: URL) in
             
-            ConnectionHandler.sharedInstance.addElement(Object: Book(names: self.bookName.text, auth: self.authorText.text, ISBNs: Int(self.ISBN.text!), urls: addressurl.absoluteString, created: Date(), longitude: -118.4452 , latitude : 34.0689))
+            ConnectionHandler.sharedInstance.addElement(Object: Book(names: self.bookName.text, auth: self.authorText.text, ISBNs: Int(self.ISBN.text!), urls: addressurl.absoluteString, created:  Date(), longitude: -118.4452, latitude: 34.0689, seller: ConnectionHandler.sharedInstance.table?.client.currentUser?.userId, condition: "new", price: 11.32))
+            
             // TODO: Loading indicator
             if success {
                 print("Done")

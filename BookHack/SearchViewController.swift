@@ -145,9 +145,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = BookDetailViewController()
-        vc.feed(withurl: results[indexPath.row]["url"] as! String, title: results[indexPath.row]["bookname"] as! String, auth: results[indexPath.row]["author"] as! String, condition: results[indexPath.row]["condition"] as! String, price:results[indexPath.row]["price"] as! String)
-        performSegue(withIdentifier: "detail", sender: self)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "detail") as! BookDetailViewController
+    
+        vc.feed(withurl: results[indexPath.row]["url"] as! String, title: results[indexPath.row]["bookname"] as! String, auth: results[indexPath.row]["author"] as! String, condition: results[indexPath.row]["condition"] as! String, price:results[indexPath.row]["price"] as! Double)
+        
+        self.present(vc, animated: true) { 
+            
+        }
     }
 
     /*
