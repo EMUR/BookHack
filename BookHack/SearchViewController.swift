@@ -17,6 +17,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchField.alpha = 0.0
         searchButton.alpha = 0.0
         self.searchField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        
+        let l = UILabel(frame: CGRect(x: 0, y: 0, width: 15, height: 0))
+        
+        searchField.leftView = l;
+        
+        searchField.leftViewMode = UITextFieldViewMode.always
+        searchField.contentVerticalAlignment = UIControlContentVerticalAlignment.center;
 
 //        self.searchField.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/10)
     }
