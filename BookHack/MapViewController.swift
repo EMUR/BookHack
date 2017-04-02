@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, NSFetchedResultsControllerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     let reuseID = "KoobBookAnnotationView"
@@ -23,8 +23,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     fileprivate var currentMapCenter: CLLocation {
         return CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
     }
-    
-    var fetchedResultController: NSFetchedResultsController<NSFetchRequestResult>?
     
     func centerOnUserLocation(animated: Bool) {
         if let userLocation = mapView.userLocation.location {
@@ -46,9 +44,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func instantiateController() {
-//        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: ConnectionHandler.dataType)
-//        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!
-        
         let searchDistance:Double =  5.00 //float value in KM
         
         let minLat = mapView.userLocation.coordinate.latitude - (searchDistance / 69)
@@ -58,18 +53,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let maxLon = mapView.userLocation.coordinate.longitude + searchDistance / fabs(cos(deg2rad(degrees: mapView.userLocation.coordinate.latitude))*69)
         
         ConnectionHandler.sharedInstance.findBooksWithin(maxLat: maxLat, minLat: minLat, maxLon: maxLon, minLon: minLon) { (done, results) in
-            
             print("\(maxLat)   \((minLat))")
             print("\(maxLon)   \((minLon))")
-
         
             print("Found \(results.count) books")
-            for i in results
-            {
-                print(i["bookname"] as! String)
+            
+            for i in results {
+                self.mapView.addAnnotation(i as! MKAnnotation)
             }
         }
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,29 +78,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         centerOnUserLocation(animated: true)
     }
-    
-    func getNearbyBooks() {
-        // show only non-completed items
-        var error : NSError? = nil
-        do {
-            try fetchedResultController?.performFetch()
-        } catch let error1 as NSError {
-            error = error1
-            print("Unresolved error \(String(describing: error)), \(String(describing: error?.userInfo))")
-            abort()
-            
-        }
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo:
-        NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        DispatchQueue.main.async(execute: { () -> Void in
-            print(controller.fetchedObjects ?? "Nothing fetched")
-        })
-    }
-    
-    
-
     
     private func deg2rad(degrees:Double) -> Double {
         return degrees * Double.pi / 180

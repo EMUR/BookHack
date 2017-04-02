@@ -162,11 +162,9 @@ class ConnectionHandler : NSObject,NSFetchedResultsControllerDelegate {
     func findBooksWithin(maxLat:Double!,minLat:Double!,maxLon:Double!,minLon:Double!, completion: @escaping (_ success: Bool, _ items: [Dictionary<String,Any>]) -> Void) {
         var Arr = [Dictionary<String,Any>]()
         
-        
-        let Pred = NSPredicate(format: "latitude <= %lf ", maxLat)
-        let Pred2 = NSPredicate(format: "latitude >= %lf", minLat)
-        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [Pred])
-
+        let Pred = NSPredicate(format: "latitude <= %f ", maxLat)
+        let Pred2 = NSPredicate(format: "latitude >= %f", minLat)
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [Pred, Pred2])
         
         table?.read(with: predicate, completion: { (result, error) in
             if let err = error {
