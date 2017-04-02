@@ -48,7 +48,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         searchField.borderStyle = UITextBorderStyle.none
         
-        searchField.backgroundColor = UIColor(colorLiteralRed: Float(253), green: Float(253), blue: Float(253), alpha: 1.0)
+        searchField.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
         
         
     
@@ -88,6 +88,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func preformSearch(_ sender: Any) {
         ConnectionHandler.sharedInstance.findBooks(nameOfBooks: searchField.text) { (good:Bool, ar:[Dictionary<String, Any>]) in
             
+            self.results.removeAll()
             
             if(good)
             {
@@ -97,10 +98,16 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     self.results.append(i)
                 }
             }
+            
+            
+            DispatchQueue.main.async {
+                self.resultsTable.reloadData()
+                self.resultsTable.endUpdates()
+            }
+            
         }
-        
-        self.resultsTable.reloadData()
-        self.resultsTable.endUpdates()
+
+      
     }
 
     /*

@@ -29,8 +29,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         seachView.borderStyle = UITextBorderStyle.none
         
-        seachView.backgroundColor = UIColor(colorLiteralRed: Float(253), green: Float(253), blue: Float(253), alpha: 1.0)
-
+        seachView.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
 
         
         previewCollection.delegate = self
