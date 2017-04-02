@@ -13,6 +13,7 @@
 		047CEAB81E901A1100B14BD0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEAB71E901A1100B14BD0 /* MainViewController.swift */; };
 		047CEABA1E901A2200B14BD0 /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */; };
 		047CEABC1E9025C000B14BD0 /* BookConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEABB1E9025C000B14BD0 /* BookConstants.swift */; };
+		04F3C54A1E90F1C000600A71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3C5491E90F1C000600A71 /* LoginViewController.swift */; };
 		46553178D2DE406C44FC6D35 /* Pods_BookHack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 988D55E7A4A1413F0D29062D /* Pods_BookHack.framework */; };
 		9C35A4B41DE4EF8000650581 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C35A4B31DE4EF8000650581 /* SafariServices.framework */; };
 		9C35A4B61DE4EF8500650581 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C35A4B51DE4EF8500650581 /* Security.framework */; };
@@ -36,6 +37,7 @@
 		047CEAB71E901A1100B14BD0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		047CEAB91E901A2200B14BD0 /* ConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
 		047CEABB1E9025C000B14BD0 /* BookConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookConstants.swift; sourceTree = "<group>"; };
+		04F3C5491E90F1C000600A71 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		988D55E7A4A1413F0D29062D /* Pods_BookHack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookHack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C35A4B31DE4EF8000650581 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		9C35A4B51DE4EF8500650581 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -112,6 +114,7 @@
 			children = (
 				A2D9CBC31943C2540017F096 /* AppDelegate.swift */,
 				A2D9CBCA1943C2540017F096 /* Main.storyboard */,
+				04F3C5491E90F1C000600A71 /* LoginViewController.swift */,
 				DBE758D51E909E8D0079E324 /* MapViewController.swift */,
 				045655481E90722400C15163 /* BookTableViewCell.swift */,
 				045F981A1E905B5700C38C64 /* BookCollectionViewCell.swift */,
@@ -281,6 +284,7 @@
 				A2D9CBC41943C2540017F096 /* AppDelegate.swift in Sources */,
 				047CEAB81E901A1100B14BD0 /* MainViewController.swift in Sources */,
 				047CEABC1E9025C000B14BD0 /* BookConstants.swift in Sources */,
+				04F3C54A1E90F1C000600A71 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
