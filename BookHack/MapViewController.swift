@@ -96,6 +96,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             error = error1
             print("Unresolved error \(String(describing: error)), \(String(describing: error?.userInfo))")
             abort()
+            
         }
     }
     
