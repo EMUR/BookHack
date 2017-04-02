@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SKq-aV-5uw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SKq-aV-5uw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -464,12 +464,21 @@
                                     <action selector="centerLocationButtonPressed:" destination="Wzl-iF-AWH" eventType="touchUpInside" id="5gM-hK-G9Q"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LK6-nV-klM">
+                                <rect key="frame" x="125" y="580" width="124" height="30"/>
+                                <state key="normal" title="Get Nearby Books"/>
+                                <connections>
+                                    <action selector="getNearbyBooks:" destination="Wzl-iF-AWH" eventType="touchUpInside" id="skH-jT-7au"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cm6-aC-fUl" firstAttribute="leading" secondItem="CAQ-sD-0ge" secondAttribute="trailing" constant="-62" id="85h-2Q-EQD"/>
+                            <constraint firstItem="COF-ws-iw3" firstAttribute="top" secondItem="LK6-nV-klM" secondAttribute="bottom" constant="8" symbolic="YES" id="Mek-Tp-cw9"/>
                             <constraint firstItem="CAQ-sD-0ge" firstAttribute="bottom" secondItem="COF-ws-iw3" secondAttribute="top" id="QA2-J3-Nxy"/>
                             <constraint firstItem="CAQ-sD-0ge" firstAttribute="top" secondItem="O9C-JW-9EO" secondAttribute="top" id="ZVo-HY-Pat"/>
+                            <constraint firstItem="LK6-nV-klM" firstAttribute="centerX" secondItem="CAQ-sD-0ge" secondAttribute="centerX" id="aUl-XC-zHo"/>
                             <constraint firstItem="cm6-aC-fUl" firstAttribute="top" secondItem="CAQ-sD-0ge" secondAttribute="bottom" constant="-54" id="cgn-SW-dzc"/>
                             <constraint firstAttribute="trailing" secondItem="CAQ-sD-0ge" secondAttribute="trailing" id="ecc-ys-tJJ"/>
                             <constraint firstItem="CAQ-sD-0ge" firstAttribute="leading" secondItem="O9C-JW-9EO" secondAttribute="leading" id="nJf-0t-7JF"/>
